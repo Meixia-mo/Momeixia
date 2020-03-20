@@ -30,10 +30,14 @@ END_MESSAGE_MAP()
 Ctest62Doc::Ctest62Doc()
 {
 	// TODO: 在此添加一次性构造代码
-	rc.left = 20;
-	rc.right = 220;
-	rc.top = 20;
-	rc.bottom = 220;
+	rc.left = 400;
+	rc.right = 600;
+	rc.top = 200;
+	rc.bottom = 300;
+	left = 400;
+	right = 600;
+	top = 200;
+	bottom = 300;
 
 
 }

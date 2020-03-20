@@ -18,6 +18,7 @@ public:
 // ²Ù×÷
 public:
 	CRect rc;
+	int top, bottom, left, right;
 
 // ÖØÐ´
 public:
