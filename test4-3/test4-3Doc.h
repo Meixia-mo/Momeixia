@@ -18,6 +18,7 @@ public:
 // ²Ù×÷
 public:
 	CRect A, B, C;
+	int a, b;
 
 // ÖØĞ´
 public:

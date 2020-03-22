@@ -30,10 +30,15 @@ END_MESSAGE_MAP()
 Ctest43Doc::Ctest43Doc()
 {
 	// TODO: 在此添加一次性构造代码
+	 a = rand() % 10+ 1;
+	 b = rand() %10 + 1;
+
 	A.left = 100; A.top = 100;
 	A.right = 200; A.bottom = 200;
+
 	B.left = 200; B.top = 200;
 	B.right = 300; B.bottom = 300;
+
 	C.left = 300; C.top = 300;
 	C.right = 400; C.bottom = 400;
 }

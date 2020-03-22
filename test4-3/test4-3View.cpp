@@ -51,14 +51,14 @@ void Ctest43View::OnDraw(CDC* pDC)
 {
 	Ctest43Doc* pDoc = GetDocument();
 	ASSERT_VALID(pDoc);
-	CClientDC dc(this);
-	dc.Rectangle(pDoc->A);
-	dc.Rectangle(pDoc->B);
-	dc.Rectangle(pDoc->C);
 	if (!pDoc)
 		return;
 
 	// TODO: 在此处为本机数据添加绘制代码
+	CClientDC dc(this);
+	dc.Rectangle(pDoc->A);
+	dc.Rectangle(pDoc->B);
+	dc.Rectangle(pDoc->C);
 }
 
 
@@ -92,21 +92,19 @@ void Ctest43View::OnLButtonDown(UINT nFlags, CPoint point)
 	Ctest43Doc* pDoc = GetDocument();
 	CClientDC dc(this);
 	int w1 = 10,  w2= 5;
-	int a = rand()%(w1-w2)+1;
-	int b = rand() % (w1 - w2) + 1;
 	if (pDoc->A.left <= point.x&&pDoc->A.right >= point.x&&pDoc->A.top <= point.y&&pDoc->A.bottom >= point.y) {
 		CString s;
-		s.Format(_T("%d"), a);
+		s.Format(_T("%d"), pDoc->a);
 		dc.TextOutW(pDoc->A.left + 40, pDoc->A.top + 40, s);
 	}
 	else if (pDoc->B.left <= point.x&&pDoc->B.right >= point.x&&pDoc->B.top <= point.y&&pDoc->B.bottom >= point.y) {
 		CString s;
-		s.Format(_T("%d"), b);
+		s.Format(_T("%d"), pDoc->b);
 		dc.TextOutW(pDoc->B.left + 40, pDoc->B.top + 40, s);
 	}
 	else if (pDoc->C.left <= point.x&&pDoc->C.right >= point.x&&pDoc->C.top <= point.y&&pDoc->C.bottom >= point.y) {
 		CString s;
-		s.Format(_T("%d"), a+b);
+		s.Format(_T("%d"), pDoc->a+pDoc->b);
 		dc.TextOutW(pDoc->C.left + 40, pDoc->C.top + 40, s);
 	}
 	else {
