@@ -30,6 +30,7 @@ END_MESSAGE_MAP()
 Ctest3Doc::Ctest3Doc()
 {
 	// TODO: 在此添加一次性构造代码
+	set = false;
 
 }
 

@@ -17,6 +17,7 @@ public:
 
 // ²Ù×÷
 public:
+	bool set;
 
 // ÖØĞ´
 public:

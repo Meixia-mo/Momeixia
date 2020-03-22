@@ -22,6 +22,7 @@
 IMPLEMENT_DYNCREATE(Ctest3View, CView)
 
 BEGIN_MESSAGE_MAP(Ctest3View, CView)
+	ON_WM_LBUTTONDOWN()
 END_MESSAGE_MAP()
 
 // Ctest3View 构造/析构
@@ -46,7 +47,7 @@ BOOL Ctest3View::PreCreateWindow(CREATESTRUCT& cs)
 
 // Ctest3View 绘制
 
-void Ctest3View::OnDraw(CDC* /*pDC*/)
+void Ctest3View::OnDraw(CDC* pDC)
 {
 	Ctest3Doc* pDoc = GetDocument();
 	ASSERT_VALID(pDoc);
@@ -54,6 +55,14 @@ void Ctest3View::OnDraw(CDC* /*pDC*/)
 		return;
 
 	// TODO: 在此处为本机数据添加绘制代码
+	if (pDoc->set) {
+    CClientDC dc(this);
+	CRect rc;
+	GetClientRect(&rc);
+	dc.Ellipse(rc);
+	}
+	
+
 }
 
 
@@ -79,3 +88,18 @@ Ctest3Doc* Ctest3View::GetDocument() const // 非调试版本是内联的
 
 
 // Ctest3View 消息处理程序
+
+
+void Ctest3View::OnLButtonDown(UINT nFlags, CPoint point)
+{
+	// TODO: 在此添加消息处理程序代码和/或调用默认值
+	Ctest3Doc* pDoc = GetDocument();
+	pDoc->set = true;
+	CClientDC dc(this);
+	CRect rc;
+	GetClientRect(&rc);
+	dc.Ellipse(rc);
+	Invalidate();
+
+	CView::OnLButtonDown(nFlags, point);
+}
