@@ -1,6 +1,8 @@
-﻿  test2View.cpp
-  正在生成代码...
-  正在跳过...(未检测到相关更改)
+﻿  stdafx.cpp
+  test2View.cpp
+  test2Doc.cpp
   test2.cpp
-  test2.vcxproj -> C:\Users\K\Documents\Visual Studio 2015\Projects\Test\test2\Debug\test2.exe
-  test2.vcxproj -> C:\Users\K\Documents\Visual Studio 2015\Projects\Test\test2\Debug\test2.pdb (Partial PDB)
+  MainFrm.cpp
+  正在生成代码...
+  test2.vcxproj -> C:\Users\K\Source\Repos\Meixia-mo\Momeixia\test2\Debug\test2.exe
+  test2.vcxproj -> C:\Users\K\Source\Repos\Meixia-mo\Momeixia\test2\Debug\test2.pdb (Partial PDB)
