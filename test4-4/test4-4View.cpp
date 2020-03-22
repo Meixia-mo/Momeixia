@@ -103,24 +103,20 @@ void Ctest44View::OnLButtonDown(UINT nFlags, CPoint point)
 	// TODO: 在此添加消息处理程序代码和/或调用默认值
 	CClientDC dc(this);
 	Ctest44Doc* pDoc = GetDocument();
-	int w1 = 10, w2 = 5;
-	int a = rand() % (w1 - w2) + 1;
-	int b = rand() % (w1 - w2) + 1;
-	pDoc->i = a;
-	pDoc->j = b;
+	
 	if (pDoc->A.left <= point.x&&pDoc->A.right >= point.x&&pDoc->A.top <= point.y&&pDoc->A.bottom >= point.y) {
 		CString s;
-		s.Format(_T("%d"), a);
+		s.Format(_T("%d"),pDoc-> a);
 		dc.TextOutW(pDoc->A.left + 40, pDoc->A.top + 40, s);
 	}
 	else if (pDoc->B.left <= point.x&&pDoc->B.right >= point.x&&pDoc->B.top <= point.y&&pDoc->B.bottom >= point.y) {
 		CString s;
-		s.Format(_T("%d"), b);
+		s.Format(_T("%d"), pDoc->b);
 		dc.TextOutW(pDoc->B.left + 40, pDoc->B.top + 40, s);
 	}
 	else if (pDoc->C.left <= point.x&&pDoc->C.right >= point.x&&pDoc->C.top <= point.y&&pDoc->C.bottom >= point.y) {
 		CString s;
-		s.Format(_T("%d"), a + b);
+		s.Format(_T("%d"),pDoc->a + pDoc->b);
 		dc.TextOutW(pDoc->C.left + 40, pDoc->C.top + 40, s);
 	}
 	else if (pDoc->D.left <= point.x&&pDoc->D.right >= point.x&&pDoc->D.top <= point.y&&pDoc->D.bottom >= point.y) {
@@ -132,7 +128,7 @@ void Ctest44View::OnLButtonDown(UINT nFlags, CPoint point)
 		}
 		else if (pDoc->count == 2) {
 			CString s;
-			s.Format(_T("-"));
+			s.Format(_T("  -"));
 			dc.TextOutW(pDoc->D.left + 40, pDoc->D.top + 40, s);
 		}
 		else if (pDoc->count == 3) {
@@ -164,23 +160,24 @@ void Ctest44View::OnRButtonDown(UINT nFlags, CPoint point)
 	Ctest44Doc* pDoc = GetDocument();
 	if (pDoc->count==1) {
 		CString s;
-		s.Format(_T("%d"), pDoc->i + pDoc->j);
+		s.Format(_T("%d"), pDoc->a + pDoc->b);
 		dc.TextOutW(pDoc->C.left + 40, pDoc->C.top + 40, s);
 	}
 	else if (pDoc->count == 2) {
 		CString s;
-		s.Format(_T("%d"), pDoc->i - pDoc->j);
+		s.Format(_T(" %d"), pDoc->a - pDoc->b);
 		dc.TextOutW(pDoc->C.left + 40, pDoc->C.top + 40, s);
 	}
 	else if (pDoc->count == 3) {
 		CString s;
-		s.Format(_T("%d"), pDoc->i * pDoc->j);
+		s.Format(_T("%d"), pDoc->a * pDoc->b);
 		dc.TextOutW(pDoc->C.left + 40, pDoc->C.top + 40, s);
 	}
 	else if (pDoc->count == 4) {
 		CString s;
-		s.Format(_T("%d"), pDoc->i / pDoc->j);
+		s.Format(_T("  %d"), pDoc->a / pDoc->b);
 		dc.TextOutW(pDoc->C.left + 40, pDoc->C.top + 40, s);
+		pDoc->count = 0;
 	}
 	CView::OnRButtonDown(nFlags, point);
 }

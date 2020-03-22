@@ -30,21 +30,22 @@ END_MESSAGE_MAP()
 Ctest44Doc::Ctest44Doc()
 {
 	// TODO: 在此添加一次性构造代码
-	A.left = 100; A.top = 100;
-	A.right = 200; A.bottom = 200;
+	a = rand() % 5 + 1;
+	b = rand() % 10 + 1;
 
-	B.left = 200; B.top = 200;
-	B.right = 300; B.bottom = 300;
+	A.left = 0; A.top = 0;
+	A.right = 100; A.bottom = 100;
 
-	C.left = 300; C.top = 300;
-	C.right = 400; C.bottom = 400;
+	B.left = 100; B.top = 100;
+	B.right = 200; B.bottom = 200;
 
-	D.left = 400; D.top = 400;
-	D.right = 500; D.bottom = 500;
+	C.left = 200; C.top = 200;
+	C.right = 300; C.bottom = 300;
+
+	D.left = 300; D.top = 300;
+	D.right = 400; D.bottom = 400;
 
 	count = 0;
-	i = 0;
-	j = 0;
 
 }
 

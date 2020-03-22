@@ -16,7 +16,7 @@ protected: // 仅从序列化创建
 public:
 	CRect A, B, C, D;
 	int count;
-	int i, j;
+	int a, b;
 // 操作
 public:
 
