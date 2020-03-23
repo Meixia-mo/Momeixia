@@ -48,7 +48,7 @@ BOOL Ctest711View::PreCreateWindow(CREATESTRUCT& cs)
 
 // Ctest711View »æÖÆ
 
-void Ctest711View::OnDraw(CDC* /*pDC*/)
+void Ctest711View::OnDraw(CDC* pDC)
 {
 	Ctest711Doc* pDoc = GetDocument();
 	ASSERT_VALID(pDoc);
