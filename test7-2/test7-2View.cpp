@@ -61,17 +61,14 @@ void Ctest72View::OnDraw(CDC* pDC)
     GetClientRect(&rc);
 	SetTimer(pDoc->r,1500,NULL);
 	int color = RGB(pDoc->red, pDoc->green, pDoc->blue);
-	CPen newPen(PS_SOLID, 2, color);
+	CPen newPen(PS_SOLID, 4, color);
 	CPen*oldPen = pDC->SelectObject(&newPen);
 	if (pDoc->set) {
 		pDC->Ellipse(rc.right / 2 - pDoc->r, rc.bottom / 2 - pDoc->r, rc.right / 2 + pDoc->r, rc.bottom / 2 + pDoc->r);
 		pDC->SelectObject(oldPen);
 	}
-	if (rc.right / 2 - pDoc->r <= rc.left) {
-		pDoc->flag = false;
-	}
-	if(pDoc->r<1) {
-		pDoc->flag = true;
+	if (rc.right / 2 - pDoc->r <= rc.left|| rc.bottom / 2 - pDoc->r<=rc.top) {
+		pDoc->r = 0;
 	}
 	
 }
@@ -117,12 +114,8 @@ void Ctest72View::OnTimer(UINT_PTR nIDEvent)
 {
 	// TODO: 在此添加消息处理程序代码和/或调用默认值
 	Ctest72Doc* pDoc = GetDocument();
-	if (pDoc->flag) {
+	
        pDoc->r += 1;
-	}
-	else {
-		pDoc->r -= 1;
-	}
 	
 	if (pDoc->red >= 250) {
 		pDoc->red = 0;

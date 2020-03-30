@@ -113,7 +113,7 @@ void Ctest63View::OnTimer(UINT_PTR nIDEvent)
 		cr[i].bottom += 10;
 		if (cr[i].bottom >= cc.bottom) {
 			flag[i] = false;
-			//flag = false;
+			
 		}
 	}
 	else {
@@ -121,7 +121,6 @@ void Ctest63View::OnTimer(UINT_PTR nIDEvent)
 		cr[i].bottom -= 5;
 		if (cr[i].top <= cc.top) {
 			flag[i] = true;
-			//flag = true;
 		}
 	}
 	Invalidate();
