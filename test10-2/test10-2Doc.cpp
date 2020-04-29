@@ -32,6 +32,7 @@ Ctest102Doc::Ctest102Doc()
 	// TODO: 在此添加一次性构造代码
 	rc.left = 0; rc.right = 750;
 	rc.top = 0; rc.bottom = 30;
+	s = ' ';
 
 }
 

@@ -72,6 +72,7 @@ void Ctest63View::OnDraw(CDC* pDC)
 	}
 	for (int i = 0; i < N; i++) {
 		pDC->Ellipse(cr[i]);
+		//pDC->Rectangle(cr[i]);
 	}
 }
 

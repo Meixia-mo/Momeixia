@@ -31,6 +31,7 @@ END_MESSAGE_MAP()
 Ctest102View::Ctest102View()
 {
 	// TODO: 在此处添加构造代码
+	set = false;
 
 }
 
@@ -56,7 +57,7 @@ void Ctest102View::OnDraw(CDC* pDC)
 		return;
 
 	// TODO: 在此处为本机数据添加绘制代码
-	pDC->Rectangle(pDoc->rc);
+	//pDC->Rectangle(pDoc->rc);
 }
 
 
@@ -87,20 +88,44 @@ Ctest102Doc* Ctest102View::GetDocument() const // 非调试版本是内联的
 void Ctest102View::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
 {
 	// TODO: 在此添加消息处理程序代码和/或调用默认值
-	CClientDC dc(this);
 	Ctest102Doc* pDoc = GetDocument();
+	CClientDC dc(this);
 	CString ss;
+	CRect rc;
+	GetClientRect(&rc);
 	CString t = _T("已输入90个以上的字符，请换行！");
+	CString t1 = _T(" ";)
 	ss.Format(_T("%c"), nChar);
-	pDoc->s = pDoc->s +ss;
+	//pDoc->s = pDoc->s +ss;
 	int len = pDoc->s.GetLength();
-	if (len > 90) {
+	int slen = (rc.right - rc.left) / len;//算出单个字符所占的长度
+	if(set){
+		int iPos = (cpoint.x-rc.left) / slen;
+		int star1 = 0;
+		char c1=pDoc->s.GetAt(iPos);
+		CString cs1;
+		cs1.Format(_T("%c"), c1);
+		CString strTmp1 = pDoc->s.Tokenize(cs1,star1);
+
+		int star2 = star1 + iPos;
+		int iPos1 = (rc.right - cpoint.x) / slen;
+		char c2 = pDoc->s.GetAt(iPos+1);
+		CString cs2;
+		cs2.Format(_T("%c"), c2);
+		CString strTmp2 = pDoc->s.Tokenize(cs2, star2);
+		pDoc->s = strTmp1 + t1 + ss + t1 + strTmp2 + t1;
+		dc.TextOutW(0, 5, pDoc->s);
+		set = false;
+	}
+	else if (len > 90) {
+		pDoc->s = pDoc->s + t1 + ss;
 		dc.TextOutW(100, 100, t);
 	}
 	else {
+		pDoc->s = pDoc->s + t1 + ss;
 		dc.TextOutW(0, 5, pDoc->s);
 	}
-
+    
 	CView::OnChar(nChar, nRepCnt, nFlags);
 }
 
@@ -108,8 +133,7 @@ void Ctest102View::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
 void Ctest102View::OnLButtonDown(UINT nFlags, CPoint point)
 {
 	// TODO: 在此添加消息处理程序代码和/或调用默认值
-	Ctest102Doc* pDoc = GetDocument();
-	pDoc->s.Tokenize();
-
+	set = true;
+	cpoint = point;
 	CView::OnLButtonDown(nFlags, point);
 }

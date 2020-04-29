@@ -17,6 +17,8 @@ public:
 
 // ²Ù×÷
 public:
+	bool set;
+	POINT cpoint;
 
 // ÖØÐ´
 public:
