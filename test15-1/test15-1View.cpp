@@ -96,8 +96,8 @@ void Ctest151View::OnFileSaveAs()
 	if (r == IDOK) {
 		//CString filename = cfd.GetPathName();//取得文件路径
 		ofstream ofs(cfd.GetPathName());
-		CString s = cfd.GetPathName();
-		ofs << CT2A(s.GetString()) << endl;
+		//CString s = cfd.GetPathName();
+		ofs << CT2A(path.GetString()) << endl;
 
 	}
 }
@@ -115,12 +115,12 @@ void Ctest151View::OnFileOpen()
 		CString filename = cfd.GetPathName();//取得文件路径
 		ifstream ifs(filename);
 		string s;
-
-		CClientDC dc(this);
+		path = filename;
+		/*CClientDC dc(this);
 		int x = 20, y = 10;
 		while (ifs >> s) {
 			dc.TextOutW(x, y, CString(s.c_str()));
 			y += 30;
-		}
+		}*/
 	}
 }
