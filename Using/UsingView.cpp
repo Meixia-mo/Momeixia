@@ -56,12 +56,25 @@ void CUsingView::OnDraw(CDC* pDC)
 		return;
 
 	// TODO: 在此处为本机数据添加绘制代码
-	CString s = CString(pchar());
+	int n = 5;
+	int j = factorial(5);
+	CString s;
+	s.Format( _T("5的阶层为：%d"), j);
 	pDC->TextOutW(100, 100, s);
 
+	FAC fac; 
 	CString ss;
-	ss.Format(_T("%d,这是从动态库返回的值。"), GetInt());
+	ss.Format(_T("30.0的弧度值：%fΠ"), fac.convert(30.0));
 	pDC->TextOutW(100, 200, ss);
+
+	CString s1;
+	s1.Format(_T("这是动态库，5的阶层为：%d"), GetInt(5));
+	pDC->TextOutW(500, 100, s1);
+
+	FAC1 fac1;
+	CString ss1;
+	ss1.Format(_T("这是动态库，30.0的弧度值：%fΠ"), fac1.convert(30.0));
+	pDC->TextOutW(500, 200, ss);
 }
 
 

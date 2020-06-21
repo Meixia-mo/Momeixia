@@ -95,13 +95,7 @@ void C第九周实验1View::OnLButtonDown(UINT nFlags, CPoint point)
 	MyDialog *pD = new MyDialog;
 	pD->Create(IDD_DIALOG1);
 	pD->ShowWindow(1);
-	/*int r = pD->DoModal();
-	CMainFrame* pMain = (CMainFrame*)AfxGetApp()->m_pMainWnd;
-	if (r == IDOK) {
-		ofstream ofs(pMain->path);
-		for(int k=0;k<pMain->ccount;k++)
-		ofs << CT2A(pMain->information[k].GetString()) << endl;
-	}*/
+	
 	CView::OnLButtonDown(nFlags, point);
 }
 

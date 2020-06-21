@@ -21,4 +21,13 @@ extern W32D_API int nw32D;
 
 W32D_API int fnw32D(void);
 
-W32D_API int GetInt();
+W32D_API int GetInt(int n);
+class W32D_API FAC1 {
+public:
+	FAC1(void);
+public:
+	int deg;
+	//FAC1() { deg = 30.0; }
+	float convert(float d);
+	// TODO:  在此添加您的方法。
+};

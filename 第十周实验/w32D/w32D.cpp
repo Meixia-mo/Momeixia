@@ -13,13 +13,23 @@ W32D_API int fnw32D(void)
 {
     return 42;
 }
-W32D_API int GetInt() 
+W32D_API int GetInt(int n) 
 {
-	return 2020;
+	int i = 1;
+	int sum = 1;
+	for (i = 1; i <= n; i++) {
+		sum = sum*i;
+	}
+	return sum;
 }
 // 这是已导出类的构造函数。
 // 有关类定义的信息，请参阅 w32D.h
-Cw32D::Cw32D()
+
+FAC1::FAC1()
 {
     return;
+}
+float FAC1::convert(float deg) {
+	float result = deg / 180;
+	return result;
 }
